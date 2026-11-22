@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CGM HAIR 홈페이지 HOME 시안</title>
+<title>CGM헤어 | 산본 자연 곱슬머리 전문 미용실</title>
 <meta name="description" content="CGM헤어 — 군포 산본의 자연 곱슬머리 전문 1인 미용실. 곱슬머리를 펴기 전에 먼저 이해하는 커트와 상담.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -207,6 +207,11 @@ section.block{padding:96px 0;border-bottom:1px solid var(--line)}
 .g-item figcaption{font-size:13px;color:var(--ink-soft);margin-top:8px}
 @media (max-width:980px){.gallery{grid-template-columns:repeat(3,1fr)}.case-grid{grid-template-columns:1fr}}
 @media (max-width:600px){.gallery{grid-template-columns:1fr 1fr}}
+.lang{display:flex;gap:6px;align-items:center;font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.06em;margin-left:18px}
+.lang a{text-decoration:none;color:var(--ink-soft);padding:4px 2px}
+.lang a[aria-current]{color:var(--red)}
+.lang span{color:var(--line)}
+@media (max-width:980px){.lang{margin-left:auto}.menu-toggle{margin-left:12px}}
 /* footer */
 footer.site{background:var(--red);color:#fff;padding:64px 0 120px}
 footer.site .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
@@ -250,6 +255,11 @@ footer.site .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.25);p
   .brand img{height:22px}
 }
 </style>
+<link rel="canonical" href="https://cgmhair.kr/">
+<link rel="alternate" hreflang="ko" href="https://cgmhair.kr/">
+<link rel="alternate" hreflang="en" href="https://cgmhair.kr/en/">
+<link rel="alternate" hreflang="es" href="https://cgmhair.kr/es/">
+<link rel="alternate" hreflang="x-default" href="https://cgmhair.kr/">
 </head>
 <body>
 
@@ -264,6 +274,7 @@ footer.site .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.25);p
       <a href="reservation.html">예약</a>
     </nav>
     <a class="btn btn-red btn-sm header-cta" href="https://talk.naver.com/ct/wb1riw1">예약하기</a>
+    <nav class="lang" aria-label="Language"><a href="index.html" hreflang="ko" lang="ko" aria-current="true">KO</a><span aria-hidden="true">·</span><a href="en/index.html" hreflang="en" lang="en">EN</a><span aria-hidden="true">·</span><a href="es/index.html" hreflang="es" lang="es">ES</a></nav>
     <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">메뉴</button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
