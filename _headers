@@ -1,0 +1,6 @@
+/admin/*
+  X-Robots-Tag: noindex
+/_build/*
+  X-Robots-Tag: noindex
+/_data/*
+  X-Robots-Tag: noindex

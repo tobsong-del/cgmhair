@@ -1,0 +1,91 @@
+# CGM HAIR 관리 화면 설정
+backend:
+  name: github
+  repo: tobsong-del/cgmhair
+  branch: main
+  commit_messages:
+    update: "곱슬 신문 업데이트"
+
+site_url: https://cgmhair.kr
+display_url: https://cgmhair.kr
+locale: ko
+
+media_folder: news/uploads
+public_folder: /news/uploads
+
+collections:
+  - name: news
+    label: 곱슬 신문
+    description: 새 신문은 목록 맨 위에 추가하세요. 저장하면 2~3분 뒤 기사 페이지와 사이트맵이 자동으로 만들어져요.
+    files:
+      - name: issues
+        label: 신문 목록
+        file: news/issues.json
+        format: json
+        fields:
+          - name: issues
+            label: 신문
+            label_singular: 신문 한 호
+            widget: list
+            add_to_top: true
+            summary: "{{fields.date}} · {{fields.title_ko}}"
+            fields:
+              - { name: date, label: "발행일", widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD" }
+              - name: category
+                label: 카테고리
+                widget: select
+                default: 곱슬머리 모발과학
+                options: [곱슬머리 모발과학, 탈매직 가이드, 곱슬머리 커트, CGM 홈케어, 두피와 모발 건강, 곱슬머리 역사와 문화, 컬리 코믹, 고객 사례, 해외 곱슬머리 트렌드]
+              - { name: publish, label: "홈페이지에 공개", widget: boolean, default: true }
+              - { name: author, label: "발행", widget: string, default: "CGM헤어 송수경" }
+              - { name: slug, label: "주소 이름 (비워두면 발행일로 자동)", widget: string, required: false }
+
+              - { name: title_ko, label: "제목 (한국어)", widget: string }
+              - { name: subtitle_ko, label: "부제목 (한국어)", widget: string, required: false }
+              - { name: summary_ko, label: "소개글 (한국어, 2~3문장 · 검색 결과에 보여요)", widget: text, required: false }
+              - { name: body_ko, label: "기사 본문 (한국어) · 신문 내용을 글로 옮겨 주세요. '## 1면 제목'처럼 쓰면 소제목이 돼요", widget: markdown, required: false, buttons: [bold, heading-two, bulleted-list, link] }
+              - name: pages_ko
+                label: 한국어 신문 페이지 (1면부터 순서대로)
+                label_singular: 페이지
+                widget: list
+                summary: "{{fields.image}}"
+                fields:
+                  - { name: image, label: "신문 이미지", widget: image }
+                  - { name: ad, label: "광고·협찬 면", widget: boolean, default: false }
+
+              - { name: title_es, label: "제목 (스페인어)", widget: string, required: false }
+              - { name: subtitle_es, label: "부제목 (스페인어)", widget: string, required: false }
+              - { name: summary_es, label: "소개글 (스페인어)", widget: text, required: false }
+              - { name: body_es, label: "기사 본문 (스페인어)", widget: markdown, required: false, buttons: [bold, heading-two, bulleted-list, link] }
+              - name: pages_es
+                label: 스페인어 신문 페이지 (없으면 비워두세요 · 한국어 신문이 대신 보여요)
+                label_singular: 페이지
+                widget: list
+                required: false
+                summary: "{{fields.image}}"
+                fields:
+                  - { name: image, label: "신문 이미지", widget: image }
+                  - { name: ad, label: "광고·협찬 면", widget: boolean, default: false }
+
+              - { name: title_en, label: "제목 (영어)", widget: string, required: false }
+              - { name: subtitle_en, label: "부제목 (영어)", widget: string, required: false }
+              - { name: summary_en, label: "소개글 (영어)", widget: text, required: false }
+              - { name: body_en, label: "기사 본문 (영어)", widget: markdown, required: false, buttons: [bold, heading-two, bulleted-list, link] }
+
+              - { name: instagram, label: "인스타그램 게시물 링크", widget: string, required: false, default: "https://www.instagram.com/cgmhairkorea/" }
+              - { name: source_ko, label: "근거·출처 (있으면)", widget: string, required: false }
+              - { name: source_es, label: "근거·출처 (스페인어)", widget: string, required: false }
+              - { name: source_en, label: "근거·출처 (영어)", widget: string, required: false }
+              - { name: source_url, label: "출처 링크", widget: string, required: false }
+
+  - name: settings
+    label: 사이트 설정
+    files:
+      - name: site
+        label: 검색엔진 인증 코드
+        file: _data/site.json
+        format: json
+        fields:
+          - { name: naver_verification, label: "네이버 서치어드바이저 인증 코드 (content 안의 값만)", widget: string, required: false }
+          - { name: bing_verification, label: "Bing 웹마스터 도구 인증 코드 (msvalidate.01의 content 값)", widget: string, required: false }
+          - { name: google_verification, label: "구글 인증 코드 (필요할 때만)", widget: string, required: false }

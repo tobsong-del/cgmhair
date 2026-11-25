@@ -1,4 +1,37 @@
+# CGM HAIR robots.txt
+# 검색 서비스용 로봇: 공개 페이지 접근 허용 (관리 화면 제외)
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+
+User-agent: Yeti
+Allow: /
+Disallow: /admin/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /admin/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+
+# 그 밖의 로봇
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /_build/
+Disallow: /_data/
+
+# AI 모델 학습용 로봇(GPTBot, ClaudeBot, Google-Extended 등)에 대한 정책은
+# Cloudflare의 "AI 학습 차단" 설정을 따릅니다. 운영자 동의 없이 바꾸지 않습니다.
 
 Sitemap: https://cgmhair.kr/sitemap.xml
